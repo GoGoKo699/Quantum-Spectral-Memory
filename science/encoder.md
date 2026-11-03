@@ -33,7 +33,7 @@ With ideal end operations, the storage half-diamond error is at most $`9\epsilon
 \le 1+\log_2\frac{(2+\sqrt{2\pi})b_\epsilon}{1-\epsilon},
 \qquad
 b_\epsilon=\left\lceil\frac4{\sqrt\epsilon}\right\rceil.
-\tag{1}
+\qquad\text{(1)}
 ```
 
 Thus its loss is a constant number of logical qubits for fixed $`\epsilon`$, uniformly in the number, spacing, signs and degeneracies of the actual spectrum. The constant in (1) is not optimized. For inverse-polynomial $`\epsilon`$, the loss is $`O(\log(1/\epsilon))`$, not a constant independent of $`\epsilon`$.
@@ -47,7 +47,7 @@ v=\frac{\epsilon}{16n^2t},\qquad
 e=\lfloor\log_2v\rfloor,\qquad
 k=\left\lfloor\frac e2\right\rfloor,\qquad
 \delta=2^k.
-\tag{2}
+\qquad\text{(2)}
 ```
 
 These definitions can be evaluated with integer arithmetic. If $`v=p/q\gt 0`$, the difference between the binary lengths of $`p`$ and $`q`$ gives a candidate for $`e`$; one integer comparison against a shifted numerator or denominator determines whether to subtract one. No floating logarithm or square root is needed. Negative $`e`$ requires mathematical floor division by two.
@@ -56,7 +56,7 @@ Equation (2) gives the exact certificate
 
 ```math
 \delta^2\le\frac{\epsilon}{16n^2t}\lt 4\delta^2.
-\tag{3}
+\qquad\text{(3)}
 ```
 
 Equivalently, for $`\delta_*=\sqrt\epsilon/(4n\sqrt t)`$,
@@ -69,7 +69,7 @@ The input precision condition is
 
 ```math
 u_j\le\delta/2\quad\text{for every }j.
-\tag{4}
+\qquad\text{(4)}
 ```
 
 If the supplied certificates fail (4), this theorem does not certify that input at the requested $`t,\epsilon`$. The compiler can state the required precision; it must not silently substitute a smaller uncertainty. As a more general diagnostic, any estimates and grid give the valid bandwidth bound $`4n\delta+2\sum_j(u_j+\delta/2)`$, but the specific constants and optimality guarantee below use (4).
@@ -77,8 +77,8 @@ If the supplied certificates fail (4), this theorem does not certify that input 
 Round exactly to
 
 ```math
-q_j=\operatorname{nint}(\widehat g_j/\delta)\in\mathbb Z.
-\tag{5}
+q_j=\mathrm{nint}(\widehat g_j/\delta)\in\mathbb Z.
+\qquad\text{(5)}
 ```
 
 Any fixed nearest-integer tie rule works. The prototype uses ties toward $`+\infty`$, namely $`\lfloor\widehat g_j/\delta+1/2\rfloor`$. From (4)–(5),
@@ -88,7 +88,7 @@ Any fixed nearest-integer tie rule works. The prototype uses ties toward $`+\inf
 \qquad
 \left|E_x-\delta\sum_jq_jx_j\right|\le n\delta
 \quad\text{for every }x.
-\tag{6}
+\qquad\text{(6)}
 ```
 
 If $`|g_j|\le G`$, then
@@ -97,7 +97,7 @@ If $`|g_j|\le G`$, then
 S:=\sum_j|q_j|
 \le n(G/\delta+1)
 \le8n^2G\sqrt{t/\epsilon}+n.
-\tag{7}
+\qquad\text{(7)}
 ```
 
 The number of fractional bits sufficient to specify coefficients to this accuracy is $`O(\log(n+1)+\log(1+t)+\log(1/\epsilon))`$, with the integer range charged separately through $`G`$. The full classical input length includes the rational descriptions of $`t,\epsilon,\widehat g_j,u_j`$. A description-length estimate is not a bound on physical calibration time or sample complexity.
@@ -117,7 +117,7 @@ Then
 
 ```math
 \sum_jq_jx_j=-S_-+\sum_jh_jy_j.
-\tag{8}
+\qquad\text{(8)}
 ```
 
 The shift $`-S_-`$ does not affect spectral diameters. Quantumly, the relabeling is a set of known $`X`$ gates. Zero weights require no special exclusion: both branches are counted, including their degeneracy.
@@ -127,7 +127,7 @@ Put $`B=4n`$. Choose the smallest integer $`a\in\{0,\ldots,S\}`$ maximizing
 ```math
 N(a)=\#\left\{y\in\{0,1\}^n:
 a\le\sum_jh_jy_j\le a+B\right\},\qquad N=\max_aN(a).
-\tag{9}
+\qquad\text{(9)}
 ```
 
 The interval in (9) is **closed**. It contains $`B+1`$ possible integer values and has diameter $`B`$. These are different quantities. Restricting $`a`$ to $`0,\ldots,S`$ loses nothing: a band starting below zero can be shifted to zero without losing any nonnegative sum, and a band starting above $`S`$ is empty. The definition covers $`S=0`$, $`B\gt S`$, and ties among maximizers. Since the all-zero $`y`$-string exists, $`N\ge1`$.
@@ -136,7 +136,7 @@ Set
 
 ```math
 m=\lfloor\log_2N\rfloor,\qquad K=2^m,
-\tag{10}
+\qquad\text{(10)}
 ```
 
 and use the first $`K`$ accepted strings in lexicographic $`y`$-order. This is a fixed deterministic order; after the known sign flips, it need not coincide with lexicographic $`x`$-order.
@@ -147,7 +147,7 @@ Any two chosen strings have rounded energies separated by at most $`B\delta`$. E
 
 ```math
 w\le B\delta+2n\delta=6n\delta.
-\tag{11}
+\qquad\text{(11)}
 ```
 
 For a generator supported in an interval of diameter $`w`$, center it to norm at most $`w/2`$. The double-commutator generator has diamond norm at most $`w^2/2`$. Integrating the dephasing semigroup gives
@@ -157,7 +157,7 @@ For a generator supported in an interval of diameter $`w`$, center it to norm at
 \le\frac{tw^2}{4}
 \le9n^2t\delta^2
 \le\frac{9\epsilon}{16}.
-\tag{12}
+\qquad\text{(12)}
 ```
 
 This is a whole-channel statement and includes arbitrary entangled references. In the $`N_j`$ convention, one can sharpen some of these constants by using the range of the rounding-error function; the conservative bound (11) is sufficient here.
@@ -177,7 +177,7 @@ By (3), a resolution interval of width $`t^{-1/2}`$ can be divided into $`b_\eps
 ```math
 N\ge\left\lceil\frac{M_t}{b_\epsilon}\right\rceil,
 \qquad K\ge\frac{M_t}{2b_\epsilon}.
-\tag{13}
+\qquad\text{(13)}
 ```
 
 The integer $`b_\epsilon`$ can itself be computed without a square root: it is the least integer $`k`$ with $`k^2\epsilon\ge16`$. Combining (13) with the unrestricted spectral-occupancy converse
@@ -195,7 +195,7 @@ Use suffix counts
 ```math
 F_{n+1}(s)=\mathbf1_{s=0},\qquad
 F_j(s)=F_{j+1}(s)+F_{j+1}(s-h_j),
-\tag{14}
+\qquad\text{(14)}
 ```
 
 with out-of-range entries zero and $`0\le s\le S`$. For $`h_j=0`$, (14) correctly doubles the count. Counts are at most $`2^n`$, so $`c=n+1`$ bits suffice, including the all-strings case. A sliding sum over $`F_1`$ finds (9) exactly.
@@ -204,7 +204,7 @@ Precompute suffix prefix sums $`P_j(z)=\sum_{s\le z}F_j(s)`$, saturated to zero 
 
 ```math
 C_j(p)=P_{j+1}(a+B-p)-P_{j+1}(a-1-p).
-\tag{15}
+\qquad\text{(15)}
 ```
 
 This is the number of accepted completions if the next bit is zero. Precomputing (15) avoids signed-address arithmetic during coherent lookup. The sum register uses
@@ -219,7 +219,7 @@ There are $`O(n(S+1))`$ count words. The table storage is $`O(n(n+1)(S+1))`$ bit
 
 ```math
 O\bigl(n(S+1)(n+\ell)\bigr)
-\tag{16}
+\qquad\text{(16)}
 ```
 
 elementary bit operations, in addition to polynomial arithmetic in the rational input length. This does not regard an $`n`$-bit count addition as a unit-cost operation. Generating and storing the compiled gate description has its own cost below.
@@ -236,7 +236,7 @@ Comparisons, addition, subtraction and Boolean selection have ordinary linear-si
 
 ```math
 O((S+1)(\ell+n))
-\tag{17}
+\qquad\text{(17)}
 ```
 
 primitive reversible gates. There is no unit-cost quantum RAM operation and no uncharged loading oracle. The literal table entries determine which controlled gates the compiler emits.
@@ -247,7 +247,7 @@ There are $`n`$ lookups in each rank or unrank computation. An intentionally sim
 G_{\mathrm{enc}}=O\bigl(n(S+1)(n+\ell)\bigr),
 \qquad
 G_{\mathrm{dec}}=G_{\mathrm{enc}},
-\tag{18}
+\qquad\text{(18)}
 ```
 
 primitive $`X`$, CNOT and Toffoli gates, and at most the same asymptotic number of temporary work qubits. This generous workspace bound is achieved by retaining intermediate Boolean wires and then reversing their computation. It does not require a nontrivial space-time optimization theorem.
@@ -278,7 +278,7 @@ Apply $`O_U`$, then $`O_R`$, then the known physical sign flips. For every $`0\l
 |r\rangle_L|0^n\rangle_P|0\rangle_W
 \longmapsto
 |0^m\rangle_L|x(r)\rangle_P|0\rangle_W.
-\tag{19}
+\qquad\text{(19)}
 ```
 
 This is a literal computational-basis permutation with no rank-dependent phase. Linearity proves the clean isometry for arbitrary superpositions and reference-entangled states. The logical input register and all work registers can be discarded or reset before storage. Neither carries any logical information in the ideal construction.
@@ -288,7 +288,7 @@ The dephasing channel preserves the span of the selected computational basis str
 ```math
 \Lambda_t(|r\rangle\langle s|)
 =e^{-t(E_{x(r)}-E_{x(s)})^2/2}|r\rangle\langle s|.
-\tag{20}
+\qquad\text{(20)}
 ```
 
 Discarding non-output registers defines a completely positive trace-preserving decoder on the entire physical input space, including states outside the code. No inverse is assumed to exist outside the chosen subspace.
@@ -301,7 +301,7 @@ Let $`\widetilde E,\widetilde D`$ be the actual boundary channels, with all nonp
 
 ```math
 \eta_E+\eta_D\le7\epsilon/16.
-\tag{21}
+\qquad\text{(21)}
 ```
 
 Contractivity and the triangle inequality give
@@ -310,7 +310,7 @@ Contractivity and the triangle inequality give
 \frac12\|\widetilde D\Phi_t\widetilde E-\mathrm{id}\|_\diamond
 \le\eta_E+\frac{9\epsilon}{16}+\eta_D
 \le\epsilon.
-\tag{22}
+\qquad\text{(22)}
 ```
 
 An approximate encoder may leave imperfectly cleaned work registers. They are discarded before storage rather than retained as an unintended quantum carrier; this discarding does not increase the channel-distance bound.
@@ -319,7 +319,7 @@ For a circuit with $`T_{\mathrm{end}}`$ implemented operations in total, a suffi
 
 ```math
 \frac{7\epsilon}{16T_{\mathrm{end}}}
-\tag{23}
+\qquad\text{(23)}
 ```
 
 per operation. More generally, the sum of the composable operation errors can be at most $`7\epsilon/16`$. Noisy initializations or resets must be included in this budget if they are not ideal. Equation (23) is a sufficient error allocation, not a fault-tolerance resource estimate or a statement that arbitrary temporally correlated hardware noise is described by independent gate channels. If a native decomposition changes the operation count, use the actual native count in (23).

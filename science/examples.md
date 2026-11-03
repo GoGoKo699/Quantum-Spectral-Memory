@@ -32,7 +32,7 @@ For each requested exposure, the compiler selects its dyadic grid and receives e
 Each code has the same conservative storage error certificate,
 
 ```math
-\frac12\|\Lambda_t-\operatorname{id}\|_\diamond
+\frac12\|\Lambda_t-\mathrm{id}\|_\diamond
 \le\frac{9\epsilon}{16}=\frac9{256}.
 ```
 

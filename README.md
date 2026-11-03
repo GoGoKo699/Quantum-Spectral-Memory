@@ -63,6 +63,12 @@ The upper curve is a conservative converse bound, not the exact optimum. The rig
 
 The [science overview](science/README.md) connects the proof dependencies. The independent-use communication-capacity corollary is a separate consequence; it does not add operations inside a storage interval.
 
+## Learn the project
+
+The educational anchor is John Watrous, *The Theory of Quantum Information* (2018). Start with the [bridge from Watrous to spectral memory](learning/anchor.md), which identifies the relevant sections, translates conventions and works through a small protected-coherence example. The [30-milestone map](learning/milestones.md) then connects 11 background milestones to 19 milestones developing the spectral law, calibrated compiler, evidence and physical interpretation.
+
+The map follows this project's scientific dependencies. Each milestone states an understanding target and points to the canonical proof or example; it does not require reading the entire textbook first. Readers already familiar with quantum channels can go directly to the [spectral law](science/spectral_law.md) and [encoder](science/encoder.md).
+
 ## Reproduce the checks
 
 With Python 3.12, run from the repository root:
@@ -75,7 +81,7 @@ The checks include exact rational band enumeration, Gaussian-matrix inequalities
 
 ## Scope
 
-This is a result for one known common Gaussian noise direction. It assumes coefficients remain within supplied calibration certificates throughout storage. The core storage theorem treats boundary operations as ideal; a separate composable error budget explains what additional boundary accuracy suffices. Physical calibration cost, local noise, drift outside the certificate, geometric circuit locality and fault-tolerant hardware overhead are not determined by this model.
+This is a result for one known common Gaussian noise direction. The true couplings are fixed during the storage interval and lie within the supplied calibration certificates. The core storage theorem treats boundary operations as ideal; a separate composable error budget explains what additional boundary accuracy suffices. Physical calibration cost, local noise, unmodeled time-dependent coupling drift, geometric circuit locality and fault-tolerant hardware overhead are not determined by this model.
 
 Approximate protected subspaces, high rates under exact collective symmetry, channel comparison methods, and reversible combinatorial encoding are established ideas. The specific contribution is their finite-spectrum occupancy characterization together with a calibrated compiler certified against unrestricted endpoint codes. The [related-work account](references/related_work.md) makes the comparisons explicit, including the earlier fixed-Hamming-weight amplitude encoder coauthored by Ruge Lin.
 

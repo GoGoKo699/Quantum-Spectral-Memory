@@ -21,14 +21,14 @@ Then
 \le \frac{\lambda_{\max}(G_t)}{1-\epsilon}
 \le \frac{CM_t}{1-\epsilon},
 }
-\tag{S1}
+\qquad\text{(S1)}
 ```
 
 where
 
 ```math
 (G_t)_{ij}=e^{-t(\lambda_i-\lambda_j)^2/2}.
-\tag{S2}
+\qquad\text{(S2)}
 ```
 
 In particular,
@@ -37,7 +37,7 @@ In particular,
 -\log_2k_\epsilon
 \le\log_2D_\epsilon(t;A)-\log_2M_t
 \le\log_2\frac{C}{1-\epsilon}.
-\tag{S3}
+\qquad\text{(S3)}
 ```
 
 The constants are uniform in dimension, exposure, degeneracies, and spacings. They are not optimized. The statement concerns fixed positive error; the error dependence in (S3) is not claimed sharp as $`\epsilon\downarrow0`$.
@@ -47,12 +47,12 @@ The constants are uniform in dimension, exposure, degeneracies, and spacings. Th
 Suppose a subspace $`P S`$ is spanned by eigenvectors whose eigenvalues lie in an interval of diameter $`a\ge0`$. There is a subspace encoder and a trace-preserving terminal decoder for which
 
 ```math
-\frac12\|\Lambda_t-\operatorname{id}_{\operatorname{rank}P}\|_\diamond
+\frac12\|\Lambda_t-\mathrm{id}_{\mathrm{rank}P}\|_\diamond
 \le \min\{1,ta^2/4\}.
-\tag{S4}
+\qquad\text{(S4)}
 ```
 
-**Proof.** Let $`V:\mathbb C^{\operatorname{rank}P}\to S`$ be an isometry with range $`P S`$. The encoded subspace is invariant under $`\Phi_t`$. Subtract the midpoint of its spectral interval from $`V^\dagger A V`$, obtaining a Hermitian $`B`$ with $`\|B\|\le a/2`$. Scalar shifts leave the double commutator unchanged.
+**Proof.** Let $`V:\mathbb C^{\mathrm{rank}P}\to S`$ be an isometry with range $`P S`$. The encoded subspace is invariant under $`\Phi_t`$. Subtract the midpoint of its spectral interval from $`V^\dagger A V`$, obtaining a Hermitian $`B`$ with $`\|B\|\le a/2`$. Scalar shifts leave the double commutator unchanged.
 
 For every ancillary register and trace-class operator $`X`$, left and right multiplication satisfy
 
@@ -64,25 +64,25 @@ and the two terms involving $`B^2`$ obey the corresponding bounds. Therefore
 
 ```math
 \|\mathcal L_B\|_\diamond\le 2\|B\|^2\le a^2/2.
-\tag{S5}
+\qquad\text{(S5)}
 ```
 
 The semigroup $`e^{s\mathcal L_B}`$ is a channel, so its diamond norm is one. Integrating the derivative gives
 
 ```math
-e^{t\mathcal L_B}-\operatorname{id}
+e^{t\mathcal L_B}-\mathrm{id}
 =\int_0^t e^{s\mathcal L_B}\mathcal L_B\,ds,
 \qquad
-\frac12\|e^{t\mathcal L_B}-\operatorname{id}\|_\diamond
+\frac12\|e^{t\mathcal L_B}-\mathrm{id}\|_\diamond
 \le ta^2/4.
-\tag{S6}
+\qquad\text{(S6)}
 ```
 
 Use $`\mathcal E(X)=VXV^\dagger`$ and, for an arbitrary fixed logical density operator $`\tau_0`$,
 
 ```math
-\mathcal R(Y)=V^\dagger YV+\operatorname{Tr}[(I-P)Y]\,\tau_0.
-\tag{S7}
+\mathcal R(Y)=V^\dagger YV+\mathrm{Tr}[(I-P)Y]\,\tau_0.
+\qquad\text{(S7)}
 ```
 
 This is a completely positive trace-preserving extension of the inverse embedding. The encoded channel has support inside $`P S`$, so $`\mathcal R\Phi_t\mathcal E=e^{t\mathcal L_B}`$. This proves (S4), including arbitrary inaccessible references. The bound by one is the general maximum half-diamond distance between channels. $`\square`$
@@ -103,7 +103,7 @@ Let $`\Phi_G(X)=G\odot X`$ be any Schur channel, so $`G\succeq0`$ and $`G_{ii}=1
 
 ```math
 F_e\le\frac{\mu}{D},
-\tag{S8}
+\qquad\text{(S8)}
 ```
 
 where $`F_e=\langle\Omega_D|\rho_{RQ}^{\rm out}|\Omega_D\rangle`$ and $`\left|\Omega_D\right\rangle=D^{-1/2}\sum_{a=1}^D|a\rangle_R|a\rangle_Q`$. This is the overlap with a pure maximally entangled target, without a square root.
@@ -112,7 +112,7 @@ where $`F_e=\langle\Omega_D|\rho_{RQ}^{\rm out}|\Omega_D\rangle`$ and $`\left|\O
 
 ```math
 \Phi_G\le_{\rm CP}\mu\Delta,
-\tag{S9}
+\qquad\text{(S9)}
 ```
 
 meaning that $`\mu\Delta-\Phi_G`$ is completely positive.
@@ -122,8 +122,8 @@ Apply the encoder instrument $`\{\mathcal E_c\}`$ to the logical half of $`|\Ome
 ```math
 \rho_{RQ}^{\rm out}\le\mu\sigma_{RQ},
 \qquad
-\sigma_{RQ}:=\sum_c(\operatorname{id}_R\otimes\mathcal R_c\Delta)(\rho_{RS}^{(c)}).
-\tag{S10}
+\sigma_{RQ}:=\sum_c(\mathrm{id}_R\otimes\mathcal R_c\Delta)(\rho_{RS}^{(c)}).
+\qquad\text{(S10)}
 ```
 
 The comparison state $`\sigma_{RQ}`$ is normalized and separable. Explicitly, set
@@ -138,15 +138,15 @@ Then
 
 ```math
 \sigma_{RQ}=\sum_{c,i}X_{ci}\otimes\tau_{ci},
-\qquad \sum_{c,i}\operatorname{Tr}X_{ci}=1.
-\tag{S11}
+\qquad \sum_{c,i}\mathrm{Tr}X_{ci}=1.
+\qquad\text{(S11)}
 ```
 
 Here every $`\tau_{ci}`$ is a density operator. This explicitly includes a retained record whose distribution depends on the unknown input. For normalized product states $`\alpha\otimes\beta`$,
 
 ```math
 \langle\Omega_D|\alpha\otimes\beta|\Omega_D\rangle
-=D^{-1}\operatorname{Tr}(\alpha^{\mathsf T}\beta)\le D^{-1}.
+=D^{-1}\mathrm{Tr}(\alpha^{\mathsf T}\beta)\le D^{-1}.
 ```
 
 Convexity gives the same upper bound for $`\sigma_{RQ}`$. Taking the maximally entangled overlap in (S10) proves (S8). Instrument integrals obey the same positive-operator argument. $`\square`$
@@ -155,7 +155,7 @@ If a code has half-diamond error at most $`\epsilon`$, then
 
 ```math
 1-F_e\le\tfrac12\|\rho_{RQ}^{\rm out}-|\Omega_D\rangle\langle\Omega_D|\|_1\le\epsilon.
-\tag{S12}
+\qquad\text{(S12)}
 ```
 
 Combining (S8)–(S12) gives $`D\le\mu/(1-\epsilon)`$. Since $`G\succeq0`$ has trace $`d`$, $`\mu\le d`$, proving the dimension bound in the model as well. No assertion that an optimal encoder selects eigenvectors is used in this converse.
@@ -167,7 +167,7 @@ For $`G_t`$ in (S2),
 ```math
 \lambda_{\max}(G_t)\le CM_t,
 \qquad C=2+\sqrt{2\pi}.
-\tag{S13}
+\qquad\text{(S13)}
 ```
 
 **Proof.** Fix $`i`$ and write $`y_j=\sqrt t(\lambda_j-\lambda_i)`$. For $`k=0,1,\ldots`$, each of the intervals $`[k,k+1)`$ and $`(-k-1,-k]`$ contains at most $`M_t`$ of the $`y_j`$, counting multiplicity. Their union covers the line; only zero is counted twice. On either interval $`e^{-y_j^2/2}\le e^{-k^2/2}`$. Therefore
@@ -177,7 +177,7 @@ For $`G_t`$ in (S2),
 \le2M_t\sum_{k=0}^\infty e^{-k^2/2}
 \le2M_t\left(1+\int_0^\infty e^{-u^2/2}\,du\right)
 =CM_t.
-\tag{S14}
+\qquad\text{(S14)}
 ```
 
 The spectral radius of a matrix with nonnegative entries is at most its maximum row sum. Since $`G_t\succeq0`$, its spectral radius is $`\lambda_{\max}(G_t)`$. This proves (S13) and completes Theorem 1. $`\square`$
@@ -196,7 +196,7 @@ Let $`m_*`$ be the largest eigenvalue multiplicity of $`A`$. Then
 
 ```math
 D_0(t;A)=m_*,\qquad t\gt 0.
-\tag{S15}
+\qquad\text{(S15)}
 ```
 
 **Proof.** Write the distinct eigenvalues as $`\nu_1,\ldots,\nu_\ell`$, with spectral projectors $`P_\alpha`$, and define block dephasing
@@ -215,7 +215,7 @@ Let $`\eta=\lambda_{\min}(H)\gt 0`$. If $`T:\mathbb C^\ell\to\mathbb C^d`$ maps 
 
 for a channel $`\Theta`$. If an allowed encoder and recovery make $`\Phi_t`$ exactly the logical identity, the same convex decomposition holds for the resulting logical channels. The identity channel has a rank-one Choi matrix and is an extreme channel, so the same code must correct $`\Pi_A`$ exactly. This conclusion also holds for an encoding instrument after summing its branches.
 
-The correlation matrix of $`\Pi_A`$ consists of all-one blocks of sizes $`\operatorname{rank}P_\alpha`$, and hence has maximum eigenvalue $`m_*`$. Lemma 2 with $`F_e=1`$ now gives $`D\le m_*`$. Encoding in a largest eigenspace attains equality. $`\square`$
+The correlation matrix of $`\Pi_A`$ consists of all-one blocks of sizes $`\mathrm{rank}P_\alpha`$, and hence has maximum eigenvalue $`m_*`$. Lemma 2 with $`F_e=1`$ now gives $`D\le m_*`$. Encoding in a largest eigenspace attains equality. $`\square`$
 
 ## Attribution of the converse method
 
