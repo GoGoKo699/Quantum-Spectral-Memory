@@ -60,6 +60,10 @@ Grid selection, integer counts, rounding, codewords, gate permutations, bandwidt
 
 The example-generation script writes `results/examples.json` and the PNG/SVG figures under `figures/`. It verifies distinctness of the 65,536 exactly specified rational eigenvalues and reproduces the 16-qubit table in [the scientific examples](../science/examples.md). Those examples do not replace the mandatory checks above.
 
+## Displayed mathematics
+
+The separate [GitHub rendering check](references/hosted-rendering.md) compares the actual hosted MathML with the pinned Markdown source at two viewport widths and captures screenshots for visual review. It checks presentation, independently of the numerical and circuit evidence above.
+
 ## What the checks do not establish
 
 The analytical arguments establish the uniform spectral theorem, the unrestricted converse, the calibration guarantee, and the asymptotic resource bounds. Finite tests support the implementation and expose arithmetic or cleanup errors; they are not substitutes for those proofs. The tested state trace distances lie below the analytic bandwidth bound, but the script does not numerically optimize the unrestricted diamond norm.

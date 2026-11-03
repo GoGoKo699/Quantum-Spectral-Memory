@@ -2,6 +2,13 @@
 
 > Finite-time Gaussian dephasing: an arbitrary-spectrum storage law and a calibrated reversible compiler for weighted qubit registers.
 
+## Reading routes
+
+- Story: start with [README](README.md), then [model](science/model.md), [examples](science/examples.md) and [interpretation](science/interpretation.md).
+- Study: use the single [Watrous anchor and bridge](learning/anchor.md), then the [30-milestone map](learning/milestones.md). The map progresses from local concepts to the complete framework in M01–M11 and from proof and compiler components to the combined result in M12–M30.
+- Theorem: [operational definitions](science/model.md), [spectral law and proof](science/spectral_law.md), then [calibrated compiler and resource bounds](science/encoder.md).
+- Reproduction: [verification guide](verification/README.md), [exact compiler](verification/band_code.py), [primitive reversible circuits](verification/verify_reversible_encoder.py) and [generated examples](verification/generate_examples.py).
+
 ## Scientific entry points
 
 - [Overview](README.md): question, principal results, scope and reproduction commands.
@@ -24,4 +31,4 @@
 
 ## Reading cautions
 
-The unrestricted occupancy theorem does not assert efficient diagonalization. The efficient construction requires the supplied weighted-qubit form and certified calibration. Fixed-error constant-qubit optimality is distinct from accuracy-dependent bounds. The independent-use capacity result does not permit interventions inside a storage interval. The repository establishes a mathematical and algorithmic guarantee, not hardware memory advantage.
+The unrestricted occupancy theorem does not assert efficient diagonalization. The efficient construction requires the supplied weighted-qubit form, fixed true couplings and certified calibration. Fixed-error constant-qubit optimality is distinct from accuracy-dependent bounds. The independent-use capacity result does not permit interventions inside a storage interval. The repository establishes a mathematical and algorithmic guarantee, not hardware memory advantage. The shared learning material describes the project's understanding targets; it contains no reader assessment or personal progress record.
