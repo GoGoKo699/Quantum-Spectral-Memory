@@ -33,8 +33,8 @@ The first six rows support background milestones M01–M11 and the one-register 
 | Convention | Translation used here |
 |---|---|
 | Vectors and adjoints | Watrous's $`u`$, $`uv^*`$, and $`B^*`$ correspond to $`\lvert u\rangle`$, $`\lvert u\rangle\langle v\rvert`$, and $`B^\dagger`$. |
-| Choi normalization | Both use unnormalized $`J(\Phi)`$. A channel with input dimension $`d`$ has $`\operatorname{Tr}J(\Phi)=d`$; $`J(\Phi)/d`$ is its normalized Choi state. |
-| Channel norm | Watrous's completely bounded trace norm, written with triple bars and subscript one, is our $`\lVert\Gamma\rVert_\diamond`$. Our error is **half** that norm: $`\frac12\lVert\Lambda-\operatorname{id}\rVert_\diamond`$. |
+| Choi normalization | Both use unnormalized $`J(\Phi)`$. A channel with input dimension $`d`$ has $`\mathrm{Tr}J(\Phi)=d`$; $`J(\Phi)/d`$ is its normalized Choi state. |
+| Channel norm | Watrous's completely bounded trace norm, written with triple bars and subscript one, is our $`\lVert\Gamma\rVert_\diamond`$. Our error is **half** that norm: $`\frac12\lVert\Lambda-\mathrm{id}\rVert_\diamond`$. |
 | Fidelity | Watrous defines $`F(\rho,\sigma)=\lVert\sqrt\rho\sqrt\sigma\rVert_1`$. Our $`F_e=\langle\Omega_D\rvert\rho_{\rm out}\lvert\Omega_D\rangle`$ is an overlap without a square root: $`F_e=F(\rho_{\rm out},\lvert\Omega_D\rangle\langle\Omega_D\rvert)^2`$. |
 | Dimensions and qubits | $`d`$ is physical dimension, $`D`$ logical dimension, and $`\lfloor\log_2D\rfloor`$ whole logical qubits. The compiler uses band population $`N`$ and selects $`K=2^{\lfloor\log_2N\rfloor}`$ codewords. |
 | Schur matrix and noise operator | The multiplier called $`A`$ in Watrous §4.1.3 corresponds to our $`G_t`$. Our Hermitian $`A`$ instead determines $`\mathcal L_A=-[A,[A,\cdot]]/2`$ and $`\Phi_t=e^{t\mathcal L_A}`$. |
@@ -97,7 +97,7 @@ At the nominal coefficients, the selected eigenvalue gap is $`1/32`$. The logica
 p=\frac{1-e^{-1/128}}2\approx0.00389103.
 ```
 
-Here $`Z=\operatorname{diag}(1,-1)`$ acts on the decoded logical qubit. Its half-diamond error is exactly $`p`$: the norm triangle inequality gives the upper bound, and input $`|+\rangle`$ attains it. Measuring that decoded input in the $`X`$ basis returns the minus outcome with probability $`p`$; a maximally entangled input has target overlap $`1-p`$.
+Here $`Z=\mathrm{diag}(1,-1)`$ acts on the decoded logical qubit. Its half-diamond error is exactly $`p`$: the norm triangle inequality gives the upper bound, and input $`|+\rangle`$ attains it. Measuring that decoded input in the $`X`$ basis returns the minus outcome with probability $`p`$; a maximally entangled input has target overlap $`1-p`$.
 
 For every fixed coefficient vector consistent with the supplied certificates, the compiler's conservative storage bound is instead $`9\epsilon/16=9/256`$. The nominal exact value and robust bound answer different questions. This is finite-time approximate protection: the nondegenerate nominal operator has exact storage dimension one at every positive exposure, as [Proposition 2](../science/spectral_law.md#proposition-2-exact-storage-at-every-positive-time) establishes. The example demonstrates a functioning band code, without claiming its optimality from these small numbers alone.
 

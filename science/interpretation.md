@@ -10,7 +10,7 @@ For a general many-body operator, evaluating the full spectrum or implementing a
 
 ```math
 A=\sum_{j=1}^ng_jN_j,\qquad N_j=|1\rangle\langle1|_j.
-\tag{I1}
+\qquad\text{(I1)}
 ```
 
 Its guarantee is relative to the optimum for the actual couplings, even though the compiler uses only estimates with a certified finite error.
@@ -20,15 +20,15 @@ Its guarantee is relative to the optimum for the actual couplings, even though t
 Let
 
 ```math
-\bar\lambda=d^{-1}\operatorname{Tr}A,
-\qquad V=d^{-1}\operatorname{Tr}(A-\bar\lambda I)^2.
+\bar\lambda=d^{-1}\mathrm{Tr}A,
+\qquad V=d^{-1}\mathrm{Tr}(A-\bar\lambda I)^2.
 ```
 
 For $`V\gt 0`$, Chebyshev's inequality implies that at least $`3d/4`$ eigenvalues lie in an interval of width $`4\sqrt V`$. Partition that interval into $`\lceil4\sqrt{Vt}\rceil`$ cells of diameter at most $`t^{-1/2}`$, assigning each boundary eigenvector to one cell. The number of cells is at most $`1+4\sqrt{Vt}`$. Pigeonholing gives
 
 ```math
 M_t\ge\frac{3d}{4(1+4\sqrt{Vt})}.
-\tag{I2}
+\qquad\text{(I2)}
 ```
 
 When $`V=0`$, $`A`$ is scalar and $`M_t=d`$, so (I2) remains a valid, weaker bound.
@@ -38,7 +38,7 @@ For (I1), $`d=2^n`$ and $`V=\frac14\sum_jg_j^2`$. Define $`x=t\sum_jg_j^2`$. Sin
 ```math
 m\ge n-\frac12\log_2(1+x)
 -\left[1+\log_2\left(\frac{4k\sqrt5}{3}\right)\right].
-\tag{I3}
+\qquad\text{(I3)}
 ```
 
 For the finite dyadic construction one may use $`k=\lceil4/\sqrt\epsilon\rceil`$. Thus bounded couplings and any prescribed polynomial exposure give an explicit passive code storing $`n-O_\epsilon(\log n)`$ logical qubits. The additional dimension guarantee relative to all allowed codes is
@@ -46,7 +46,7 @@ For the finite dyadic construction one may use $`k=\lceil4/\sqrt\epsilon\rceil`$
 ```math
 0\le\log_2D_\epsilon(t;A)-m
 \le1+\log_2\left(\frac{Ck}{1-\epsilon}\right).
-\tag{I4}
+\qquad\text{(I4)}
 ```
 
 The compiler is polynomial for bounded couplings, polynomial $`t`$, and inverse-polynomial error tolerance. It is not asserted polynomial in the bit length of $`t`$. The true couplings are fixed during the storage interval and lie within the supplied calibration certificates. Required calibration accuracy is an input assumption; the number of bits specifying the estimates is not the physical cost of obtaining them. Temporary encoder workspace is cleaned before storage; decoder workspace is introduced only after storage and is discarded after recovery. Independent local noise, unmodeled time-dependent coupling drift, and imperfect boundary operations require separate models and are not included in these guarantees; the [boundary-error budget](encoder.md#6-composable-implementation-error-budget) gives a separate composable extension for the last item.
@@ -61,10 +61,10 @@ For each fixed finite $`A`$, the limit channel is
 \lim_{t\to\infty}\Phi_t=\Pi_A,
 \qquad
 \Pi_A(X)=\sum_\alpha P_\alpha X P_\alpha,
-\tag{I5}
+\qquad\text{(I5)}
 ```
 
-where $`P_\alpha`$ are the projectors onto distinct eigenspaces. The convergence holds in diamond norm in finite dimension. The fixed algebra is the direct sum of full matrix algebras on those eigenspaces. Its largest exact noiseless subspace has dimension $`m_*:=\max_\alpha\operatorname{rank}P_\alpha`$. Proposition 2 shows that $`D_0(t;A)=m_*`$ at every positive time.
+where $`P_\alpha`$ are the projectors onto distinct eigenspaces. The convergence holds in diamond norm in finite dimension. The fixed algebra is the direct sum of full matrix algebras on those eigenspaces. Its largest exact noiseless subspace has dimension $`m_*:=\max_\alpha\mathrm{rank}P_\alpha`$. Proposition 2 shows that $`D_0(t;A)=m_*`$ at every positive time.
 
 If the spectrum is nondegenerate, $`\Pi_A`$ is entanglement breaking. Moreover $`\lambda_{\max}(G_t)\to1`$. For any fixed $`\epsilon\lt 1/2`$, eventually $`\lambda_{\max}(G_t)\lt 2(1-\epsilon)`$; the all-code converse then forces $`D_\epsilon(t;A)=1`$. Thus every fixed nondegenerate register eventually loses the ability to store even one logical qubit at that error.
 
@@ -93,7 +93,7 @@ Then
 \le\log_2\lambda_{\max}(G_t)
 \le\log_2M_t+\log_2C.
 }
-\tag{I6}
+\qquad\text{(I6)}
 ```
 
 The upper bound is a strong-converse bound for fixed-length deterministic entanglement-generation protocols. No equality between assisted and unassisted capacities is asserted. This corollary is not needed to prove the one-register theorem.
@@ -107,21 +107,21 @@ Use canonical one-mode coherent states
 \qquad
 \langle\beta|\alpha\rangle
 =e^{-(|\alpha|^2+|\beta|^2)/2+\beta^*\alpha}.
-\tag{I7}
+\qquad\text{(I7)}
 ```
 
 The isometry
 
 ```math
 V_t|i\rangle=|i\rangle\otimes|\sqrt t\,\lambda_i\rangle
-\tag{I8}
+\qquad\text{(I8)}
 ```
 
 has reduced system channel $`\Phi_t`$, because the environmental overlap for real amplitudes is exactly $`e^{-t(\lambda_i-\lambda_j)^2/2}`$. Its complementary channel is
 
 ```math
 \Phi_t^c(\rho)=\sum_i\rho_{ii}|\sqrt t\,\lambda_i\rangle\langle\sqrt t\,\lambda_i|.
-\tag{I9}
+\qquad\text{(I9)}
 ```
 
 The coherent-state environmental representation is established for the bosonic number-spectrum dephasing channel by Arqand, Memarzadeh and Mancini, [arXiv:2007.03897v4](https://arxiv.org/html/2007.03897v4), Eqs. (7)–(9) and (16)–(19). Their amplitudes $`-i\sqrt\gamma\,m`$ become real after an environment phase rotation. Here $`\gamma=t`$ in the matrix-element normalization of their Eq. (9), and (I7)–(I9) verify the finite-spectrum extension directly.
@@ -131,8 +131,8 @@ This oscillator is a mathematical dilation of the specified channel. The displac
 Choose $`M_t`$ eigenvectors inside a resolution interval with midpoint $`c`$, and use their uniform mixture as the channel input. The system output entropy is $`\log_2M_t`$. Displace the environment by $`-\sqrt t\,c`$; this leaves its entropy unchanged. Every displaced amplitude then has absolute value at most $`1/2`$. The resulting environment state $`\tau_E`$ satisfies
 
 ```math
-\operatorname{Tr}(b^\dagger b\,\tau_E)\le1/4.
-\tag{I10}
+\mathrm{Tr}(b^\dagger b\,\tau_E)\le1/4.
+\qquad\text{(I10)}
 ```
 
 For completeness, a state of mean number at most $`u\gt 0`$ has entropy at most $`h_{\rm bos}(u)`$. Compare it by nonnegativity of relative entropy with the thermal state
@@ -157,14 +157,14 @@ Let $`\mu=\lambda_{\max}(G_t)`$. The CP order $`\Phi_t\le_{\rm CP}\mu\Delta`$ ho
 
 ```math
 \rho_L\le\mu^L\sigma_L.
-\tag{I11}
+\qquad\text{(I11)}
 ```
 
 The comparison protocol has only entanglement-breaking communication and starts without shared entanglement. Thus $`\sigma_L`$ is separable across the sender–receiver partition. Its overlap with a maximally entangled target of dimension $`K_L`$ is at most $`1/K_L`$, so
 
 ```math
 F_L\le\frac{\mu^L}{K_L}.
-\tag{I12}
+\qquad\text{(I12)}
 ```
 
 If $`\liminf_L L^{-1}\log_2K_L\gt \log_2\mu`$, the target overlap tends to zero exponentially. This proves the upper bound and its stated strong-converse meaning. Failure branches are included in the output state; no bound on a postselected normalized branch is being asserted.
