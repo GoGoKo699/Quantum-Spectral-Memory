@@ -1,0 +1,27 @@
+# Quantum Spectral Memory
+
+> Finite-time Gaussian dephasing: an arbitrary-spectrum storage law and a calibrated reversible compiler for weighted qubit registers.
+
+## Scientific entry points
+
+- [Overview](README.md): question, principal results, scope and reproduction commands.
+- [Science map](science/README.md): dependencies and reading order.
+- [Operational model](science/model.md): Gaussian normalization, deterministic endpoint codes, retained classical records and half-diamond error.
+- [Spectral law](science/spectral_law.md): occupancy theorem, all-code converse and exact-error boundary.
+- [Encoder](science/encoder.md): certified rounding, dynamic programming, coherent rank/unrank, explicit resources and clean workspace.
+- [Examples](science/examples.md): homogeneous limit, exactly specified nondegenerate register and small primitive circuits.
+- [Interpretation](science/interpretation.md): variance rates, order of limits and a separate independent-use capacity corollary.
+- [Related work](references/related_work.md): inherited ingredients and the specific contribution.
+- [Bibliography](references/references.bib): primary references.
+
+## Reproduction
+
+- [Verification guide](verification/README.md): commands, evidence coverage and limitations.
+- [Classical compiler](verification/band_code.py): exact rational grid and integer counting.
+- [Unified checks](verification/run_all.py): matrix, exhaustive band and primitive-circuit checks.
+- [Reversible compiler](verification/verify_reversible_encoder.py): literal X, CNOT and Toffoli implementation.
+- [Examples generator](verification/generate_examples.py): rational data and plots.
+
+## Reading cautions
+
+The unrestricted occupancy theorem does not assert efficient diagonalization. The efficient construction requires the supplied weighted-qubit form and certified calibration. Fixed-error constant-qubit optimality is distinct from accuracy-dependent bounds. The independent-use capacity result does not permit interventions inside a storage interval. The repository establishes a mathematical and algorithmic guarantee, not hardware memory advantage.

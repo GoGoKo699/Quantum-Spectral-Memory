@@ -1,0 +1,564 @@
+{
+  "all_passed": true,
+  "arithmetic": {
+    "all_passed": true,
+    "exact_rational_checks": 504,
+    "independent_grid_comparisons": 120,
+    "independent_rounding_tie_comparisons": 21
+  },
+  "boundary_checks": {
+    "all_passed": true,
+    "cases": [
+      {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "all_passed": true,
+        "analytic_half_diamond_storage_bound": "0",
+        "band_population": 1,
+        "case": "zero_logical_qubits",
+        "dimension": 1,
+        "encoder_primitive_gate_count": 191,
+        "logical_qubits": 0,
+        "max_decoded_schur_entry_error": 0.0,
+        "n": 2,
+        "physical_codewords": [
+          "10"
+        ],
+        "primary_module_comparison": {
+          "accepted_words_ranked_and_unranked": 1,
+          "all_passed": true,
+          "completion_table_addresses_compared": 56,
+          "module": "band_code.py",
+          "same_grid_weights_band_and_population": true
+        },
+        "rounded_weights": [
+          -9,
+          18
+        ],
+        "temporary_work_qubits": 59
+      },
+      {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "all_passed": true,
+        "analytic_half_diamond_storage_bound": "81/16384",
+        "band_population": 2,
+        "case": "one_negative_physical_qubit",
+        "dimension": 2,
+        "encoder_primitive_gate_count": 51,
+        "logical_qubits": 1,
+        "max_decoded_schur_entry_error": 0.0,
+        "n": 1,
+        "physical_codewords": [
+          "1",
+          "0"
+        ],
+        "primary_module_comparison": {
+          "accepted_words_ranked_and_unranked": 2,
+          "all_passed": true,
+          "completion_table_addresses_compared": 4,
+          "module": "band_code.py",
+          "same_grid_weights_band_and_population": true
+        },
+        "rounded_weights": [
+          -3
+        ],
+        "temporary_work_qubits": 14
+      }
+    ],
+    "logical_basis_inputs_checked": 3
+  },
+  "cases": [
+    {
+      "S": 17,
+      "analytic_half_diamond_storage_bound": "2209/262144",
+      "arbitrary_basis_inverse_tests": 3,
+      "band_population": 6,
+      "bell_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 4,
+        "reference_dimension": 4,
+        "trace_distance_from_ideal_storage": 0.006027081974336378
+      },
+      "case": "signed_zero_n3",
+      "classical_band_exhaustively_checked": true,
+      "closed_band": [
+        0,
+        12
+      ],
+      "compiled_all_logical_basis_inputs_checked": true,
+      "decoder_primitive_gate_count": 652,
+      "delta": "1/128",
+      "dimension": 4,
+      "encoder_gate_counts": {
+        "CCX": 146,
+        "CX": 403,
+        "X": 103
+      },
+      "encoder_primitive_gate_count": 652,
+      "epsilon": "1/16",
+      "estimates": [
+        "1/512",
+        "-21/512",
+        "49/512"
+      ],
+      "generic_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 12,
+        "reference_dimension": 3,
+        "trace_distance_from_ideal_storage": 0.004960830589134861
+      },
+      "grid_exponent": -7,
+      "logical_qubits": 2,
+      "n": 3,
+      "nonnegative_weights": [
+        0,
+        5,
+        12
+      ],
+      "physical_codewords": [
+        "010",
+        "011",
+        "000",
+        "110"
+      ],
+      "primary_module_comparison": {
+        "accepted_words_ranked_and_unranked": 6,
+        "all_passed": true,
+        "completion_table_addresses_compared": 54,
+        "module": "band_code.py",
+        "same_grid_weights_band_and_population": true
+      },
+      "resolution_population": 8,
+      "rounded_weights": [
+        0,
+        -5,
+        12
+      ],
+      "storage_qubits_only": 3,
+      "subdivision_factor": 16,
+      "t": "4",
+      "temporary_work_qubits": 132,
+      "total_circuit_wires": 137,
+      "true_code_diameter": "47/512",
+      "true_coefficients": [
+        "3/512",
+        "-23/512",
+        "47/512"
+      ],
+      "uncertainty": [
+        "1/256",
+        "1/256",
+        "1/256"
+      ],
+      "uniform_budget_9epsilon_over16": "9/256"
+    },
+    {
+      "S": 53,
+      "analytic_half_diamond_storage_bound": "3721/262144",
+      "arbitrary_basis_inverse_tests": 3,
+      "band_population": 6,
+      "bell_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 4,
+        "reference_dimension": 4,
+        "trace_distance_from_ideal_storage": 0.012735258191394897
+      },
+      "case": "signed_zero_n4",
+      "classical_band_exhaustively_checked": true,
+      "closed_band": [
+        9,
+        25
+      ],
+      "compiled_all_logical_basis_inputs_checked": true,
+      "decoder_primitive_gate_count": 2007,
+      "delta": "1/128",
+      "dimension": 4,
+      "encoder_gate_counts": {
+        "CCX": 528,
+        "CX": 1078,
+        "X": 401
+      },
+      "encoder_primitive_gate_count": 2007,
+      "epsilon": "1/16",
+      "estimates": [
+        "-67/512",
+        "-1/512",
+        "45/512",
+        "99/512"
+      ],
+      "generic_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 12,
+        "reference_dimension": 3,
+        "trace_distance_from_ideal_storage": 0.011987062891231422
+      },
+      "grid_exponent": -7,
+      "logical_qubits": 2,
+      "n": 4,
+      "nonnegative_weights": [
+        17,
+        0,
+        11,
+        25
+      ],
+      "physical_codewords": [
+        "1001",
+        "1010",
+        "1101",
+        "1110"
+      ],
+      "primary_module_comparison": {
+        "accepted_words_ranked_and_unranked": 6,
+        "all_passed": true,
+        "completion_table_addresses_compared": 216,
+        "module": "band_code.py",
+        "same_grid_weights_band_and_population": true
+      },
+      "resolution_population": 16,
+      "rounded_weights": [
+        -17,
+        0,
+        11,
+        25
+      ],
+      "storage_qubits_only": 4,
+      "subdivision_factor": 16,
+      "t": "4",
+      "temporary_work_qubits": 361,
+      "total_circuit_wires": 367,
+      "true_code_diameter": "61/512",
+      "true_coefficients": [
+        "-65/512",
+        "-3/512",
+        "43/512",
+        "101/512"
+      ],
+      "uncertainty": [
+        "1/256",
+        "1/256",
+        "1/256",
+        "1/256"
+      ],
+      "uniform_budget_9epsilon_over16": "9/256"
+    },
+    {
+      "S": 75,
+      "analytic_half_diamond_storage_bound": "6241/1048576",
+      "arbitrary_basis_inverse_tests": 3,
+      "band_population": 12,
+      "bell_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 8,
+        "reference_dimension": 8,
+        "trace_distance_from_ideal_storage": 0.0030397120021473916
+      },
+      "case": "signed_zero_n5",
+      "classical_band_exhaustively_checked": true,
+      "closed_band": [
+        20,
+        40
+      ],
+      "compiled_all_logical_basis_inputs_checked": true,
+      "decoder_primitive_gate_count": 4238,
+      "delta": "1/256",
+      "dimension": 8,
+      "encoder_gate_counts": {
+        "CCX": 1336,
+        "CX": 2030,
+        "X": 872
+      },
+      "encoder_primitive_gate_count": 4238,
+      "epsilon": "1/16",
+      "estimates": [
+        "1/1024",
+        "-37/1024",
+        "57/1024",
+        "83/1024",
+        "-123/1024"
+      ],
+      "generic_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 24,
+        "reference_dimension": 3,
+        "trace_distance_from_ideal_storage": 0.0029190952826365873
+      },
+      "grid_exponent": -8,
+      "logical_qubits": 3,
+      "n": 5,
+      "nonnegative_weights": [
+        0,
+        9,
+        14,
+        21,
+        31
+      ],
+      "physical_codewords": [
+        "01000",
+        "01011",
+        "01111",
+        "00000",
+        "00011",
+        "00101",
+        "11000",
+        "11011"
+      ],
+      "primary_module_comparison": {
+        "accepted_words_ranked_and_unranked": 12,
+        "all_passed": true,
+        "completion_table_addresses_compared": 380,
+        "module": "band_code.py",
+        "same_grid_weights_band_and_population": true
+      },
+      "resolution_population": 32,
+      "rounded_weights": [
+        0,
+        -9,
+        14,
+        21,
+        -31
+      ],
+      "storage_qubits_only": 5,
+      "subdivision_factor": 16,
+      "t": "4",
+      "temporary_work_qubits": 756,
+      "total_circuit_wires": 764,
+      "true_code_diameter": "79/1024",
+      "true_coefficients": [
+        "3/1024",
+        "-39/1024",
+        "55/1024",
+        "85/1024",
+        "-125/1024"
+      ],
+      "uncertainty": [
+        "1/512",
+        "1/512",
+        "1/512",
+        "1/512",
+        "1/512"
+      ],
+      "uniform_budget_9epsilon_over16": "9/256"
+    },
+    {
+      "S": 86,
+      "analytic_half_diamond_storage_bound": "121/16384",
+      "arbitrary_basis_inverse_tests": 3,
+      "band_population": 28,
+      "bell_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 16,
+        "reference_dimension": 16,
+        "trace_distance_from_ideal_storage": 0.0032938151711319518
+      },
+      "case": "signed_zero_n6",
+      "classical_band_exhaustively_checked": true,
+      "closed_band": [
+        23,
+        47
+      ],
+      "compiled_all_logical_basis_inputs_checked": true,
+      "decoder_primitive_gate_count": 9684,
+      "delta": "1/256",
+      "dimension": 16,
+      "encoder_gate_counts": {
+        "CCX": 3420,
+        "CX": 4098,
+        "X": 2166
+      },
+      "encoder_primitive_gate_count": 9684,
+      "epsilon": "1/16",
+      "estimates": [
+        "-27/1024",
+        "-1/1024",
+        "45/1024",
+        "63/1024",
+        "-91/1024",
+        "115/1024"
+      ],
+      "generic_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 48,
+        "reference_dimension": 3,
+        "trace_distance_from_ideal_storage": 0.0028219327529869277
+      },
+      "grid_exponent": -8,
+      "logical_qubits": 4,
+      "n": 6,
+      "nonnegative_weights": [
+        7,
+        0,
+        11,
+        16,
+        23,
+        29
+      ],
+      "physical_codewords": [
+        "100011",
+        "100000",
+        "100111",
+        "100100",
+        "101011",
+        "101000",
+        "101110",
+        "110011",
+        "110000",
+        "110111",
+        "110100",
+        "111011",
+        "111000",
+        "111110",
+        "000011",
+        "000000"
+      ],
+      "primary_module_comparison": {
+        "accepted_words_ranked_and_unranked": 28,
+        "all_passed": true,
+        "completion_table_addresses_compared": 522,
+        "module": "band_code.py",
+        "same_grid_weights_band_and_population": true
+      },
+      "resolution_population": 64,
+      "rounded_weights": [
+        -7,
+        0,
+        11,
+        16,
+        -23,
+        29
+      ],
+      "storage_qubits_only": 6,
+      "subdivision_factor": 16,
+      "t": "4",
+      "temporary_work_qubits": 1688,
+      "total_circuit_wires": 1698,
+      "true_code_diameter": "11/128",
+      "true_coefficients": [
+        "-25/1024",
+        "-3/1024",
+        "43/1024",
+        "65/1024",
+        "-93/1024",
+        "113/1024"
+      ],
+      "uncertainty": [
+        "1/512",
+        "1/512",
+        "1/512",
+        "1/512",
+        "1/512",
+        "1/512"
+      ],
+      "uniform_budget_9epsilon_over16": "9/256"
+    },
+    {
+      "S": 0,
+      "analytic_half_diamond_storage_bound": "1/4096",
+      "arbitrary_basis_inverse_tests": 3,
+      "band_population": 16,
+      "bell_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 16,
+        "reference_dimension": 16,
+        "trace_distance_from_ideal_storage": 9.445796736646641e-05
+      },
+      "case": "all_rounded_zero_n4",
+      "classical_band_exhaustively_checked": true,
+      "closed_band": [
+        0,
+        16
+      ],
+      "compiled_all_logical_basis_inputs_checked": true,
+      "decoder_primitive_gate_count": 848,
+      "delta": "1/128",
+      "dimension": 16,
+      "encoder_gate_counts": {
+        "CCX": 204,
+        "CX": 580,
+        "X": 64
+      },
+      "encoder_primitive_gate_count": 848,
+      "epsilon": "1/16",
+      "estimates": [
+        "1/512",
+        "-1/512",
+        "1/512",
+        "-1/512"
+      ],
+      "generic_reference_test": {
+        "all_encoder_and_decoder_workspaces_clean": true,
+        "decoded_schur_max_entry_error": 0.0,
+        "nonzero_input_amplitudes": 48,
+        "reference_dimension": 3,
+        "trace_distance_from_ideal_storage": 0.0001196937589107459
+      },
+      "grid_exponent": -7,
+      "logical_qubits": 4,
+      "n": 4,
+      "nonnegative_weights": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "physical_codewords": [
+        "0000",
+        "0001",
+        "0010",
+        "0011",
+        "0100",
+        "0101",
+        "0110",
+        "0111",
+        "1000",
+        "1001",
+        "1010",
+        "1011",
+        "1100",
+        "1101",
+        "1110",
+        "1111"
+      ],
+      "primary_module_comparison": {
+        "accepted_words_ranked_and_unranked": 16,
+        "all_passed": true,
+        "completion_table_addresses_compared": 4,
+        "module": "band_code.py",
+        "same_grid_weights_band_and_population": true
+      },
+      "resolution_population": 16,
+      "rounded_weights": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "storage_qubits_only": 4,
+      "subdivision_factor": 16,
+      "t": "4",
+      "temporary_work_qubits": 191,
+      "total_circuit_wires": 199,
+      "true_code_diameter": "1/64",
+      "true_coefficients": [
+        "3/512",
+        "-3/512",
+        "-1/512",
+        "1/512"
+      ],
+      "uncertainty": [
+        "1/256",
+        "1/256",
+        "1/256",
+        "1/256"
+      ],
+      "uniform_budget_9epsilon_over16": "9/256"
+    }
+  ]
+}
