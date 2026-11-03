@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   rendered-mathematics:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       REVIEW_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
