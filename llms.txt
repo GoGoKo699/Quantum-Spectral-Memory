@@ -1,6 +1,6 @@
 # Quantum Spectral Memory
 
-> Finite-time Gaussian dephasing: an arbitrary-spectrum storage law and a calibrated reversible compiler for weighted qubit registers.
+> Finite-time Gaussian dephasing: the one-direction occupancy law, the sharp gap for several commuting directions, and a calibrated reversible compiler for one-direction weighted qubit registers.
 
 ## Reading routes
 
@@ -14,7 +14,8 @@
 - [Overview](README.md): question, principal results, scope and reproduction commands.
 - [Science map](science/README.md): dependencies and reading order.
 - [Operational model](science/model.md): Gaussian normalization, deterministic endpoint codes, retained classical records and half-diamond error.
-- [Spectral law](science/spectral_law.md): occupancy theorem, all-code converse and exact-error boundary.
+- [Spectral law](science/spectral_law.md): scalar occupancy theorem, all-code converse and exact-error boundary.
+- [Several noise directions](science/multiple_noise_directions.md): covariance-weighted joint spectrum, sharp rank dependence and the 151-qubit phase repetition example.
 - [Encoder](science/encoder.md): certified rounding, dynamic programming, coherent rank/unrank, explicit resources and clean workspace.
 - [Examples](science/examples.md): homogeneous limit, exactly specified nondegenerate register and small primitive circuits.
 - [Interpretation](science/interpretation.md): variance rates, order of limits and a separate independent-use capacity corollary.
@@ -28,6 +29,7 @@
 - [Unified checks](verification/run_all.py): matrix, exhaustive band and primitive-circuit checks.
 - [Reversible compiler](verification/verify_reversible_encoder.py): literal X, CNOT and Toffoli implementation.
 - [Examples generator](verification/generate_examples.py): rational data and plots.
+- [Noise-rank checks](verification/verify_noise_rank.py): exact repetition tail and finite checks of the joint spectral proof ingredients.
 
 ## Reading cautions
 

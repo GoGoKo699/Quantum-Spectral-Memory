@@ -133,6 +133,10 @@ V:=2^{-n}\sum_x(\lambda(x)-\bar\lambda)^2
 
 The general spectral theorem is information theoretic and does not assume an efficient description of an eigenbasis. Efficient compilation is asserted only for the explicitly supplied form (M10), with finite-precision coupling estimates and a stated error certificate.
 
+## Several commuting generators
+
+For several known commuting generators, use the same endpoint operations, memory resources and half-diamond criterion with the covariance-weighted joint spectral channel defined in [several noise directions](multiple_noise_directions.md). The scalar normalization (M1)–(M3) and the compiler assumptions (M10)–(M12) specify the single-direction case.
+
 ## Relation to the storage literature
 
 The use of arbitrary boundary encoders and recoveries to define quantum storage is part of the established Markovian-memory framework; see Singh and Datta, *Information storage and transmission under Markovian noise*, [arXiv:2504.10436v2](https://arxiv.org/html/2504.10436v2), Theorem 3.1. The present definitions specify the finite-time channel, classical record, and worst-case reference-sensitive error criterion used below.

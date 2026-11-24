@@ -2,9 +2,9 @@
 
 The map follows one question: how much unknown quantum information can a finite memory preserve during a prescribed interval of Gaussian dephasing, and how can a nearly optimal code be compiled from calibrated couplings?
 
-**Background/preliminaries contains M01–M11.** These eleven milestones connect individual coherences, reference systems, channel representations, admissible records and coherent encoding into the complete operational question. **Narrative/innovation contains M12–M30.** These nineteen milestones assemble the spectral converse and construction, then the finite-bit compiler, before integrating examples, limiting regimes and the separate communication corollary. The allocation reflects the project's two linked results: a characterization against arbitrary codes and an explicit implementation approaching that characterization.
+**Background/preliminaries contains M01–M11.** These eleven milestones connect individual coherences, reference systems, channel representations, admissible records and coherent encoding into the complete operational question. **Narrative/innovation contains M12–M30.** These nineteen milestones assemble the rank-one spectral converse and construction, then the finite-bit compiler. The final milestones connect the proof to finite examples, the several-direction rank law and the separate communication corollary.
 
-The sole educational anchor is John Watrous, *The Theory of Quantum Information* (2018), using the [author-hosted manuscript](https://jhwatrous.github.io/TQI.pdf). Section numbers below refer to that version. The [anchor bridge](anchor.md) translates its notation and provides a worked example. Watrous supplies the channel-theoretic foundations; the spectral estimates, calibration arithmetic and compiler arguments have their authoritative derivations in the linked scientific pages. This map identifies the main understanding targets without replacing those proofs.
+The sole educational anchor is John Watrous, *The Theory of Quantum Information* (2018), using the [author-hosted manuscript](https://jhwatrous.github.io/TQI.pdf). Section numbers below refer to that version. The [anchor bridge](anchor.md) translates its notation and works through a rank-one band code and a many-direction endpoint code. Watrous supplies the channel-theoretic foundations. Follow the linked scientific pages for the proofs of the storage bounds and the compiler guarantees.
 
 The true coupling vector is fixed throughout each storage interval. For calibrated compilation it lies within the supplied uncertainty certificates. Uniformity over those fixed vectors does not include unmodeled time-dependent coupling drift.
 
@@ -312,17 +312,17 @@ The true coupling vector is fixed throughout each storage interval. For calibrat
 
 **Sources.** [Watrous §§3.3.2–3.3.3][W3]; [encoder, §6 and (21)–(23)](../science/encoder.md#6-composable-implementation-error-budget).
 
-### M26: What the examples and primitive circuits establish
+### M26: What worked codes and primitive circuits establish
 
-**Central question.** Which aspects of the result become visible in a small code, a larger spectrum and executable circuits?
+**Central question.** How can a finite code reveal the protection mechanism and the strength of the error guarantee?
 
-**Understanding target.** Connect the two-qubit worked example to the nondegenerate 16-qubit bands and the small primitive-gate checks. Distinguish exact arithmetic, tested state errors, analytic channel bounds and a conservative converse ceiling. Explain what enumeration verifies and why the general compiler avoids that enumeration.
+**Understanding target.** Connect the two-qubit band code to the nondegenerate 16-qubit bands and the primitive-gate checks. Compare it with the many-direction repetition code, which corrects phase-flip patterns even though a unit ball contains only one joint point. Distinguish tested errors and certified channel bounds. Explain why the band compiler avoids full enumeration.
 
 **Dependencies and story role.** Brings M12–M25 together in concrete instances while keeping the evidence levels explicit.
 
 **Conceptual connection.** Examples expose the mechanism and implementation; uniform claims retain their analytical proofs.
 
-**Sources.** [Watrous §§3.2–3.3][W3]; [worked example](anchor.md#worked-example-one-logical-qubit-without-an-exact-degeneracy); [examples](../science/examples.md); [verification limits](../verification/README.md#what-the-checks-do-not-establish).
+**Sources.** [Watrous §§3.2–3.3][W3]; [rank-one worked example](anchor.md#worked-example-one-logical-qubit-without-an-exact-degeneracy); [many-direction worked example](anchor.md#worked-example-with-one-point-per-ball); [examples](../science/examples.md); [verification limits](../verification/README.md#what-the-checks-do-not-establish).
 
 ### M27: Variance, extensive storage and the order of limits
 
@@ -360,17 +360,17 @@ The true coupling vector is fixed throughout each storage interval. For calibrat
 
 **Sources.** [Watrous §6.1.2][W6], [§8.2.1][W8]; [interpretation, (I11)–(I12)](../science/interpretation.md#upper-bound-for-adaptive-classical-assistance).
 
-### M30: The combined contribution and its physical scope
+### M30: Effective rank controls the gap to ball occupancy
 
-**Central question.** What does the occupancy law together with the calibrated compiler establish about this memory model?
+**Central question.** How much can a code gain beyond the most populated resolution ball when commuting noise acts in several directions?
 
-**Understanding target.** Connect arbitrary-code optimality, finite-input construction and clean quantum implementation into one instance-wise guarantee. Separate the unrestricted spectral theorem from its efficient weighted-qubit realization, fixed-error conclusions from exact storage, and single-interval storage from independent-use communication. Identify inherited techniques and the assumptions needed for a physical application.
+**Understanding target.** Derive the joint spectral points from the Gaussian covariance and explain why only the span of their differences counts. Connect Gaussian Gram row sums to the upper bound and the Tverberg construction with truncated environmental features to the matching family. Interpret the fixed-error worst-case gap $`\tfrac r2\log_2r+O_\epsilon(r)`$ and relate it to the rank-one characterization and calibrated compiler.
 
-**Dependencies and story role.** Integrates M11–M29 into the project's complete scientific claim.
+**Dependencies and story role.** Extends M12–M16 and applies the finite contrast in M26. The compiler in M18–M25 and the independent-use result in M28–M29 concern their stated rank-one settings.
 
-**Conceptual connection.** Finite spectral resolution replaces exact degeneracy as the useful organizing quantity for approximate storage.
+**Conceptual connection.** The rank-one law compares storage to a cluster of nearby eigenvalues. In higher rank, endpoint codes can distribute each logical state across many eigenvectors while concealing the logical label from the environment to the accuracy required for recovery.
 
-**Sources.** [Watrous §3.3.3][W3], [§8.2.1][W8]; [scientific synthesis](../science/README.md); [specific contribution and limits](../references/related_work.md#what-remains-after-these-comparisons).
+**Sources.** [Watrous §2.2.2][W2], [§4.1.3][W4]; [rank law and construction](../science/multiple_noise_directions.md); [scientific synthesis](../science/README.md); [specific contribution and limits](../references/related_work.md#what-remains-after-these-comparisons).
 
 [Scientific account](../science/README.md) · [Anchor and bridge](anchor.md) · [Repository overview](../README.md)
 

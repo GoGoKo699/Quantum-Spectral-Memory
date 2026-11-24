@@ -10,7 +10,7 @@ Use the [author's book page](https://jhwatrous.github.io/books-and-courses.html)
 
 The linked errata are dated July 23, 2025; they include corrected norm-conversion constants in Theorems 3.56 and 8.45. The project's interval-error estimate is proved directly, without using those conversions.
 
-Watrous supplies the mathematical foundations. The project's spectral occupancy law and calibrated compiler require the additional arguments identified here. Primary papers in [Related work](../references/related_work.md) supply research attribution and theorem dependencies; they are separate from this one educational anchor.
+Watrous supplies the mathematical foundations. The rank-one occupancy law, calibrated compiler and several-direction separation require the additional arguments identified here. Primary papers in [Related work](../references/related_work.md) give research attribution and theorem dependencies.
 
 ## Targeted reading map
 
@@ -67,7 +67,7 @@ For $`t\gt0`$, the dimensionless quantity $`t(\lambda_i-\lambda_j)^2`$ determine
 
 **Finally, make the code executable.** For $`A=\sum_jg_jN_j`$, with $`N_j=|1\rangle\langle1|_j`$, [the compiler](../science/encoder.md) rounds certified coefficient estimates to an exact dyadic grid. It finds a populated integer-sum band by dynamic programming, then coherently ranks and unranks accepted strings. Reversing intermediate computations cleans all temporary workspace before storage. Explicit lookup gates and bit arithmetic establish polynomial resources under the stated parameter scaling. The precision certificate is an input assumption, not a claim about calibration sample cost.
 
-This construction loses only a constant number of qubits relative to the all-code optimum at fixed error. Neither the occupancy theorem nor this calibration-to-circuit conclusion is attributed to the textbook.
+For one noise direction, this construction loses only a constant number of qubits relative to the all-code optimum at fixed error. Several commuting directions share the Schur-channel description and the same all-code comparison. Their geometry and attainable codes require the separate argument below.
 
 ## Worked example: one logical qubit without an exact degeneracy
 
@@ -100,5 +100,38 @@ p=\frac{1-e^{-1/128}}2\approx0.00389103.
 Here $`Z=\mathrm{diag}(1,-1)`$ acts on the decoded logical qubit. Its half-diamond error is exactly $`p`$: the norm triangle inequality gives the upper bound, and input $`|+\rangle`$ attains it. Measuring that decoded input in the $`X`$ basis returns the minus outcome with probability $`p`$; a maximally entangled input has target overlap $`1-p`$.
 
 For every fixed coefficient vector consistent with the supplied certificates, the compiler's conservative storage bound is instead $`9\epsilon/16=9/256`$. The nominal exact value and robust bound answer different questions. This is finite-time approximate protection: the nondegenerate nominal operator has exact storage dimension one at every positive exposure, as [Proposition 2](../science/spectral_law.md#proposition-2-exact-storage-at-every-positive-time) establishes. The example demonstrates a functioning band code, without claiming its optimality from these small numbers alone.
+
+## Several commuting noise directions
+
+Commuting couplings have a common eigenbasis. Put their joint eigenvalues in a vector $`\lambda_i`$, then use the Gaussian phase covariance $`C`$ for the entire interval, including the exposure, to form $`z_i=C^{1/2}\lambda_i`$. Watrous §4.1.3 again describes the channel as an entrywise multiplier.
+
+```math
+G_{ij}=\exp\!\left(-\frac{\|z_i-z_j\|_2^2}{2}\right).
+```
+
+The effective rank $`r`$ is the dimension of the span of all differences $`z_i-z_j`$. This count removes directions that leave every coherence unchanged. For example, if both couplings assign proportional eigenvalues up to an additive scalar, the points lie on a line even with two independent Gaussian phases. Two independent phases with linearly independent coupling differences can instead produce a two-dimensional grid.
+
+Let $`M`$ be the maximum number of points, counted with multiplicity, inside any closed unit Euclidean ball. At rank one a unit ball is an interval of length two in the rescaled coordinate. Its occupancy is between one and two times the maximum occupancy of a unit-width interval. At growing rank, the [several-direction theorem](../science/multiple_noise_directions.md) gives a sharp worst-case gap for each fixed $`0<\epsilon<1/4`$.
+
+```math
+\sup_{\text{effective rank }r}\bigl(\log_2D_\epsilon-\log_2M\bigr)
+=\frac r2\log_2r+O_\epsilon(r).
+```
+
+The Choi comparison from the rank-one proof still bounds arbitrary codes by the largest Gaussian Gram eigenvalue. Counting neighbors in higher-dimensional balls gives the upper bound. For the matching family, the construction uses Tverberg’s theorem to match convex averages of truncated environmental features over disjoint supports. The discarded part of the environmental state controls the error. This gives a deterministic endpoint code for the family. The calibrated dynamic program above concerns one noise direction.
+
+### Worked example with one point per ball
+
+Take $`151`$ qubits, each with an independent phase flip of probability $`p=7/16`$. A single flip channel attenuates a differing-bit coherence by $`1-2p=1/8`$. The product channel has joint points $`z_x=\sqrt{2\ln 8}\,x`$ for binary strings $`x`$. Squared Euclidean distance is $`2\ln 8`$ times Hamming distance. The minimum separation exceeds two, so $`M=1`$.
+
+Encode logical basis states as $`|+\rangle^{\otimes151}`$ and $`|-\rangle^{\otimes151}`$. After storage, measure adjacent $`X_jX_{j+1}`$ parities. Each syndrome leaves a pair of complementary error patterns. Correcting the smaller pattern preserves coherence and succeeds when at most 75 flips occurred. A larger error pattern exchanges the two encoded basis states after correction. The resulting logical Pauli flip has probability
+
+```math
+\sum_{k=76}^{151}\binom{151}{k}
+   \left(\frac7{16}\right)^k\left(\frac9{16}\right)^{151-k}
+\approx 0.061217204448 \lt \frac1{16}.
+```
+
+This probability is the half-diamond error of the decoded channel. The triangle inequality gives the upper bound and a logical basis input attains it. The parity measurements and correction occur at the decoding endpoint. This example stores a logical qubit at the same tolerance as the two-qubit band example above. The asymptotic sharpness proof uses the separate feature construction.
 
 [Milestone map](milestones.md) · [Scientific overview](../science/README.md) · [Repository overview](../README.md)
