@@ -69,6 +69,8 @@ For $`t\gt0`$, the dimensionless quantity $`t(\lambda_i-\lambda_j)^2`$ determine
 
 For one noise direction, this construction loses only a constant number of qubits relative to the all-code optimum at fixed error. Several commuting directions share the Schur-channel description and the same all-code comparison. Their geometry and attainable codes require the separate argument below.
 
+**When a common offset is unknown, fix the physical weight.** In the [fixed-weight compiler](../science/fixed_weight_encoder.md), the weight label determines the eigenvalue of the collective operator $`\sum_i Z_i`$. Every codeword then acquires the same phase from the common offset. Watrous §§2.2.2 and 3.3.2 give the framework for the clean isometry and reference-complete error of its restricted channel. [Quantum Memory Calibration](https://github.com/GoGoKo699/Quantum-Memory-Calibration/blob/main/science/compiled_calibration.md) uses Watrous §§4.1.2–4.1.3 to turn the encoded Schur channels into correlated phase errors by averaging Pauli shifts and then corrects those errors at the far boundary.
+
 ## Worked example: one logical qubit without an exact degeneracy
 
 Take two physical qubits with nominal operator
