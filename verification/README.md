@@ -40,6 +40,22 @@ The independently constructed tables and classical maps are compared against `ba
 
 Two separate boundary checks exercise the zero-logical-qubit case and a one-physical-qubit negative-weight code. For weights `[-9, 18]`, the encoder has logical dimension one and prepares the nonzero physical word `10`; the decoder must clean both physical qubits. For weight `[-3]`, it encodes one logical qubit into the physical words `1, 0`. Both cases propagate the actual primitive gates, check cleanup and the decoded channel, and compare the classical maps with `band_code.py`. The dimension-one logical test cannot be entangled with its reference; the one-qubit case includes entangled inputs. These checks have their own summary and do not change the five-case performance table.
 
+### Noise rank, Gaussian features, and the 151-qubit example
+
+The noise-rank theorem and examples have a standalone check that uses only the Python standard library:
+
+```bash
+python verification/verify_noise_rank.py
+```
+
+The script verifies the following finite instances.
+
+- **Independent phase flips.** It derives the flip probability `7/16` from the Gaussian one-bit coherence `1/8`. It computes the majority-failure tail for 151 qubits by an exact integer sum and independently by a rational recurrence. The probability is **0.061217204448** to twelve decimal places and is strictly below `1/16`. Exhausting all error patterns for odd physical register sizes from one through nine checks that a syndrome identifies each pattern up to its complement. Choosing the lighter pattern leaves a logical flip exactly for the majority-failure events. The resulting Pauli error probability equals the half-diamond error by the analytic argument.
+- **Gaussian feature truncation.** At effective ranks one, two, and three, the script enumerates the feature coordinates of the specified total-degree projection and verifies their count, normalization, and Gram entries against the scalar exponential series. It independently computes the omitted Poisson mass for each signature and verifies the uniform dilation bound at those points. These floating-point comparisons cover 12 signatures and 48 ordered pairs.
+- **Exact recovery condition.** At a separate degree-one cutoff, two disjoint weighted groups of five signatures give the same normalized feature mixture, exactly `I/2`. Rational arithmetic checks all four entries of each mixture. The disjoint supports also make the off-diagonal complementary output zero. This is a finite instance of the condition used for exact recovery of the projected channel.
+
+The script prints its results and does not change the existing generated evidence.
+
 ### Numerical tolerances
 
 Grid selection, integer counts, rounding, codewords, gate permutations, bandwidth certificates and exact workspace-zero checks use no floating tolerance. The floating-point checks use the following explicit thresholds:
@@ -51,6 +67,7 @@ Grid selection, integer counts, rounding, codewords, gate permutations, bandwidt
 | Decoded density-matrix trace | Absolute deviation from one strictly less than `1e-12` |
 | Decoded density-matrix positivity | Minimum eigenvalue strictly greater than `-1e-12` |
 | Tested state trace distance versus the analytic storage bound | At most the bound plus `1e-12` |
+| Gaussian feature normalization, Poisson mass and Gram entries | Absolute difference at most `2e-14` |
 
 ## Generated evidence
 

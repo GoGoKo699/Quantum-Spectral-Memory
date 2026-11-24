@@ -12,9 +12,12 @@ The [operational model](model.md) fixes the noise normalization, deterministic e
 | General-code converse | [Lemma 2](spectral_law.md#lemma-2-a-converse-for-arbitrary-encoding-and-classical-records) | The Gaussian Gram matrix bounds every allowed code through completely positive comparison with full dephasing. |
 | Occupancy estimate | [Lemma 3](spectral_law.md#lemma-3-gaussian-row-sums-from-local-occupancy) | Gaussian row sums are bounded by a constant times the maximum population of a resolution interval. |
 | Finite-time law | [Theorem 1](spectral_law.md#theorem-1-one-register-storage) | The optimal number of logical qubits is $`\log_2M_t+O_\epsilon(1)`$. |
+| Several noise directions | [Joint spectral theorem](multiple_noise_directions.md) | Gives the sharp leading growth of the worst-case occupancy gap with effective rank and an explicit local-noise example. |
 | Calibrated compilation | [Encoder construction](encoder.md) | Certified finite-precision couplings suffice to compile a clean coherent code within a fixed-error constant number of qubits of the unrestricted optimum. |
 
 The general theorem assumes no efficient eigenbasis. The compiler makes a stronger implementation statement for the explicitly supplied weighted-qubit operator $`A=\sum_jg_jN_j`$. Its integer counting tables, arithmetic, lookups, reversible gates, workspace and input precision are all charged. It uses no unpriced quantum RAM.
+
+The joint spectral theorem keeps the same endpoint contract. Its converse uses the general Schur-channel comparison. Its attaining family encodes across separated spectral points after controlling a finite approximation of the noise environment, while its finite example uses phase repetition.
 
 ## Interpretation and boundaries
 
