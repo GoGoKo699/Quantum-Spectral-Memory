@@ -38,6 +38,8 @@ b_\epsilon=\left\lceil\frac4{\sqrt\epsilon}\right\rceil.
 
 Thus its loss is a constant number of logical qubits for fixed $`\epsilon`$, uniformly in the number, spacing, signs and degeneracies of the actual spectrum. The constant in (1) is not optimized. For inverse-polynomial $`\epsilon`$, the loss is $`O(\log(1/\epsilon))`$, not a constant independent of $`\epsilon`$.
 
+The [fixed-weight specialization](fixed_weight_encoder.md) preserves the physical Hamming weight by carrying signed sums and residual weights together. This makes it possible to use certified centered couplings even when a common offset is unknown.
+
 ## 1. Exact dyadic grid selection
 
 Set

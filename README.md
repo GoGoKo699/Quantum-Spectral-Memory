@@ -52,6 +52,8 @@ the [calibrated compiler](science/encoder.md) rounds certified coupling estimate
 
 At fixed error, its logical dimension is within a spectrum-independent constant number of qubits of the unrestricted optimum. The compiler is polynomial for bounded couplings, polynomial storage time, and fixed or inverse-polynomial error tolerance. The explicit qubit gap grows with the demanded accuracy; polynomial time in the binary length of the storage time is not claimed.
 
+The [fixed-weight compiler](science/fixed_weight_encoder.md) uses signed integer counts within a prescribed Hamming-weight sector, where a common coupling offset contributes only a scalar phase. [Quantum Memory Calibration](https://github.com/GoGoKo699/Quantum-Memory-Calibration/blob/main/science/compiled_calibration.md) uses these clean blocks and endpoint phase correction to attain the sharp leading calibration budget with polynomial endpoint costs at polynomial hold times.
+
 ## A finite example
 
 ![Compiled storage and single-qubit coherence for a nondegenerate 16-qubit register](figures/finite_time_memory.png)
@@ -68,6 +70,7 @@ The upper curve is a conservative converse bound, not the exact optimum. The rig
 | Why does spectral occupancy characterize storage with one noise direction? | [Scalar law](science/spectral_law.md) |
 | How far can joint spectral occupancy fall short? | [Several noise directions](science/multiple_noise_directions.md) |
 | How is the code compiled with finite precision and clean workspace? | [Encoder construction](science/encoder.md) |
+| How can a conserved weight remove a common coupling offset? | [Fixed-weight compiler](science/fixed_weight_encoder.md) |
 | What do concrete spectra and circuits demonstrate? | [Examples](science/examples.md) |
 | How do finite time, exact noiseless sectors and communication capacity differ? | [Consequences and interpretation](science/interpretation.md) |
 | Which ingredients are inherited, and what is the specific contribution? | [Related work](references/related_work.md) and [bibliography](references/references.bib) |
@@ -89,6 +92,7 @@ With Python 3.12, run from the repository root:
     python verification/run_all.py
     python verification/generate_examples.py
     python verification/verify_noise_rank.py
+    python verification/verify_fixed_weight.py
 
 The checks include exact rational band enumeration, Gaussian-matrix inequalities, and actual reversible-gate propagation of basis and reference-entangled inputs. The 16-qubit illustration uses the classical dynamic program; the full primitive circuits are verified on smaller instances. Finite tests support the implementations and examples. The mathematical proofs establish the general storage and complexity claims.
 

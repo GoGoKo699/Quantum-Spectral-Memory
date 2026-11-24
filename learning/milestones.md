@@ -232,13 +232,13 @@ The true coupling vector is fixed throughout each storage interval. For calibrat
 
 **Central question.** How does the rounded spectrum become an exact counting problem without losing negative weights or degeneracies?
 
-**Understanding target.** Explain the known bit flips that replace signed weights by nonnegative ones. Preserve zero-weight multiplicities and distinguish an integer band's diameter from its number of integer values. Identify the deterministic maximizing band and the power-of-two subset used for logical qubits.
+**Understanding target.** Explain the known bit flips that replace signed weights by nonnegative ones in the full register. In a fixed-weight sector, retain signed weights because those flips generally change the required physical weight. Preserve zero-weight multiplicities and distinguish an integer band's diameter from its number of integer values. Identify the deterministic maximizing band and the power-of-two subset used for logical qubits.
 
 **Dependencies and story role.** Converts M18's calibration statement into the discrete object the compiler will count.
 
-**Conceptual connection.** A unitary relabeling preserves the physical problem while simplifying classical arithmetic.
+**Conceptual connection.** A relabeling can simplify the arithmetic when it preserves the set of allowed strings.
 
-**Sources.** [Watrous §2.2.2][W2]; [encoder, §2 and (8)–(10)](../science/encoder.md#2-signed-weights-and-the-optimal-closed-band).
+**Sources.** [Watrous §2.2.2][W2]; [encoder, §2 and (8)–(10)](../science/encoder.md#2-signed-weights-and-the-optimal-closed-band); [fixed-weight counting](../science/fixed_weight_encoder.md#exact-counting-and-rank-access).
 
 ### M20: Physical protection and constant-qubit optimality
 
@@ -256,13 +256,13 @@ The true coupling vector is fixed throughout each storage interval. For calibrat
 
 **Central question.** How can the compiler count an exponentially large set without listing its members?
 
-**Understanding target.** Interpret suffix subset-sum counts and their recurrence, then explain how prefix sums count accepted completions of a partial string. Track the bit width of counts, including zero weights and the all-strings case, and the cost of finding the maximizing closed band.
+**Understanding target.** Interpret suffix subset-sum counts and their recurrence, then explain how prefix sums count accepted completions of a partial string. For a fixed sector, track the residual weight and signed partial sum together. Track the bit width of counts, including zero weights and the all-strings case, and the cost of finding the maximizing closed band.
 
 **Dependencies and story role.** Implements the discrete search defined in M19 while preserving the certificate in M20.
 
 **Conceptual connection.** Exact counting supplies a compact description from which coherent codeword selection can be constructed.
 
-**Sources.** [Watrous §2.1.2][W2] for basis labels; [encoder, §3 and (14)–(16)](../science/encoder.md#3-exact-classical-preprocessing).
+**Sources.** [Watrous §2.1.2][W2] for basis labels; [encoder, §3 and (14)–(16)](../science/encoder.md#3-exact-classical-preprocessing); [signed suffix recurrence](../science/fixed_weight_encoder.md#exact-counting-and-rank-access).
 
 ### M22: Ranking and unranking without listing codewords
 
@@ -296,9 +296,9 @@ The true coupling vector is fixed throughout each storage interval. For calibrat
 
 **Dependencies and story role.** Integrates M06, M10 and M21–M23 into the actual quantum implementation.
 
-**Conceptual connection.** Workspace cleanup enforces the physical-memory constraint, rather than merely improving memory usage.
+**Conceptual connection.** Workspace cleanup ensures that the physical memory carries the full unknown state. The fixed-weight inverse makes each protected block available to endpoint phase correction.
 
-**Sources.** [Watrous §§2.1.3, 2.2.2][W2]; [encoder, §5 and (19)–(20)](../science/encoder.md#5-clean-coherent-isometry-and-decoding-channel).
+**Sources.** [Watrous §§2.1.3, 2.2.2][W2]; [encoder, §5 and (19)–(20)](../science/encoder.md#5-clean-coherent-isometry-and-decoding-channel); [compiled calibration across blocks](https://github.com/GoGoKo699/Quantum-Memory-Calibration/blob/main/science/compiled_calibration.md).
 
 ### M25: Composing storage and boundary-operation errors
 

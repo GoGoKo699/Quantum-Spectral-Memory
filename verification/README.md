@@ -56,6 +56,16 @@ The script verifies the following finite instances.
 
 The script prints its results and does not change the existing generated evidence.
 
+### Fixed-weight signed bands
+
+Run the independent standard-library check from the repository root.
+
+```bash
+python verification/verify_fixed_weight.py
+```
+
+Across 200 sectors, direct enumeration checks 13,216 closed-band populations and 624 lexicographic rank/unrank pairs for the most populated bands. Exact rational arithmetic verifies that a common offset changes the energy by the same scalar throughout the sector and that coefficient uncertainty respects the bandwidth bound. The cases include signed and zero weights, exact degeneracies, and the two single-state sectors. These checks exercise the counting and certificate. The [fixed-weight proof](../science/fixed_weight_encoder.md) gives the clean reversible gate construction and channel guarantee.
+
 ### Numerical tolerances
 
 Grid selection, integer counts, rounding, codewords, gate permutations, bandwidth certificates and exact workspace-zero checks use no floating tolerance. The floating-point checks use the following explicit thresholds:
