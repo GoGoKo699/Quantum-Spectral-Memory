@@ -75,6 +75,12 @@ function inspectArticle(root, expected) {
     const variant=e.getAttribute('mathvariant') || inherited;
     if (['mi','mo','mn','mtext','ms'].includes(tag)) {
       const text=e.textContent.trim();
+      // GitHub and the reference compiler use different Unicode double-bar
+      // glyphs for TeX norm delimiters. Keep their operator role, including
+      // opening versus closing, and leave relational parallel signs distinct.
+      const texClass=e.getAttribute('data-mjx-texclass');
+      if (tag==='mo' && (text==='‖' || text==='∥') && ['ORD','OPEN','CLOSE'].includes(texClass))
+        return [[tag,'‖',variant,texClass]];
       return text?[[tag,text,variant]]:[];
     }
     // Preserve each structural child slot: flattening numerator and denominator
@@ -215,7 +221,12 @@ async function run(args) {
           const prefix=String(index+1).padStart(4,'0')+'-'+viewport.width;
           const item={path:source.path,url:source.url,revision:args.revision,source_sha256:source.source_sha256,errors:[],math:[]};
           try {
-            const response=await page.goto(source.url,{waitUntil:'domcontentloaded',timeout:60000});
+            const navigation={waitUntil:'domcontentloaded',timeout:60000};
+            let response=await page.goto(source.url,navigation);
+            if ([502,503,504].includes(response?.status()) && page.url()===source.url) {
+              console.warn(`Retrying HTTP ${response.status()} for ${source.path} at ${viewport.width}px`);
+              response=await page.goto(source.url,navigation);
+            }
             if(response?.status()!==200) throw new Error('HTTP '+response?.status());
             if(page.url()!==source.url) throw new Error('Browser redirected away from exact pinned source URL');
             const article=page.locator('article.markdown-body').first();
