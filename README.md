@@ -2,7 +2,7 @@
 
 **How much unknown quantum information can a finite register preserve during one interval of collective dephasing?**
 
-With one Gaussian noise direction, the answer is controlled by how many noise eigenvalues fit inside one interval at the noise's finite-time resolution. With several commuting directions, a joint spectral cluster can miss a large amount of recoverable storage. The rank of the joint noise spectrum determines the sharp worst-case size of that gap.
+With one Gaussian noise direction, the answer is controlled by how many noise eigenvalues fit inside one interval at the noise's finite-time resolution. With several commuting directions, a joint spectral cluster can miss a large amount of recoverable storage. The rank of the joint noise spectrum determines the sharp worst-case size of that gap. The [encoder walkthrough](#from-an-existence-theorem-to-an-encoder) gives the steps for the calibrated weighted-qubit memory.
 
 ## One noise direction
 
@@ -48,7 +48,13 @@ For
 A=\sum_{j=1}^n g_jN_j,\qquad N_j=|1\rangle\langle1|_j,
 ```
 
-the [calibrated compiler](science/encoder.md) rounds certified coupling estimates to a dyadic grid, finds a populous weighted-sum band by integer dynamic programming, and implements rank and unrank coherently with primitive reversible gates. Every temporary register is cleared before storage.
+use the [calibrated compiler](science/encoder.md) to store an unknown logical register.
+
+1. **Choose the band.** Supply a rational hold time and error target, along with certified signed coupling estimates. Use the [dyadic-grid rule](science/encoder.md#1-exact-dyadic-grid-selection) to check that each certificate meets the required precision. Round the estimates and use integer dynamic programming to count strings by weighted sum. Find the most populated [closed band](science/encoder.md#2-signed-weights-and-the-optimal-closed-band). Take the largest power of two that fits its population, then use that many accepted strings from the start of the specified order.
+2. **Encode and hold.** Initialize the physical and work registers to zero. Reversibly unrank the input into the physical register, XOR the codeword's rank into the input register to clear it, and apply the known X flips for negative weights. The [X, CNOT and Toffoli circuits](science/encoder.md#4-rank-and-unrank-as-total-boolean-circuits) uncompute their work. Release or reset the cleared registers. Only the physical register carries the state while the specified dephasing acts.
+3. **Decode.** Supply fresh zero logical and work registers and reverse the encoding gates. Return the recovered quantum register. The procedure uses no measurement, feedforward or retry. The [half-diamond error budget](science/encoder.md#6-composable-implementation-error-budget) protects reference-entangled inputs. Ideal storage uses at most nine sixteenths of the target error, leaving seven sixteenths for both endpoints.
+
+The [finite gate checks](verification/README.md) exercise the emitted primitives and workspace cleanup. Classical table construction, literal lookup scans, and temporary wires are counted in the compiler.
 
 At fixed error, its logical dimension is within a spectrum-independent constant number of qubits of the unrestricted optimum. The compiler is polynomial for bounded couplings, polynomial storage time, and fixed or inverse-polynomial error tolerance. The explicit qubit gap grows with the demanded accuracy; polynomial time in the binary length of the storage time is not claimed.
 
